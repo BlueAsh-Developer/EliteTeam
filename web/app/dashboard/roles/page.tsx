@@ -1,5 +1,5 @@
 import { db } from '@/lib/db'
-import { getSession, requireUser, can, PERMISSIONS, PERMISSION_GROUPS, flattenPermissions, expandPermissions } from '@/lib/permissions'
+import { can, PERMISSIONS, PERMISSION_GROUPS, flattenPermissions, expandPermissions } from '@/lib/permissions'
 import { requireUser as authRequireUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 
