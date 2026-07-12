@@ -12,7 +12,8 @@ export async function GET(request: Request) {
     if (!workspaceId) {
       return NextResponse.json({ error: 'workspaceId required' }, { status: 400 })
     }
-    const roles = await db().roles.listByWorkspace(workspaceId)
+    const repo = await db()
+    const roles = await repo.roles.listByWorkspace(workspaceId)
     return NextResponse.json({ roles })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -22,7 +23,8 @@ export async function GET(request: Request) {
 export async function PUT(request: Request) {
   try {
     const session = await requireUser()
-    const member = session.memberId ? await db().members.getById(session.memberId) : null
+    const repo = await db()
+    const member = session.memberId ? await repo.members.getById(session.memberId) : null
     if (!member || !can(member, 'roles.edit')) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
@@ -33,7 +35,7 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: parsed.error.errors.map((e: { message: string }) => e.message).join(', ') }, { status: 400 })
     }
 
-    const updated = await db().members.update(parsed.data.id, { permissions: parsed.data.permissions })
+    const updated = await repo.members.update(parsed.data.id, { permissions: parsed.data.permissions })
     return NextResponse.json({ member: updated })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

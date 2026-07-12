@@ -12,7 +12,8 @@ export async function GET(request: Request) {
     if (!workspaceId) {
       return NextResponse.json({ error: 'No workspace' }, { status: 400 })
     }
-    const calls = await db().calls.list(workspaceId)
+    const repo = await db()
+    const calls = await repo.calls.list(workspaceId)
     return NextResponse.json({ calls })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -22,7 +23,8 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const session = await requireUser()
-    const member = session.memberId ? await db().members.getById(session.memberId) : null
+    const repo = await db()
+    const member = session.memberId ? await repo.members.getById(session.memberId) : null
     if (!member || !can(member, 'voice.call') && !can(member, 'video.call')) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
@@ -33,7 +35,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: parsed.error.errors.map((e: { message: string }) => e.message).join(', ') }, { status: 400 })
     }
 
-    const call = await db().calls.create({ workspaceId: session.workspaceId!, type: parsed.data.type, participants: parsed.data.participants || [session.userId], screenShare: parsed.data.screenShare })
+    const call = await repo.calls.create({ workspaceId: session.workspaceId!, type: parsed.data.type, participants: parsed.data.participants || [session.userId], screenShare: parsed.data.screenShare })
     return NextResponse.json({ call })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

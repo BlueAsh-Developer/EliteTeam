@@ -12,7 +12,8 @@ export async function GET(request: Request) {
     if (!workspaceId) {
       return NextResponse.json({ error: 'No workspace' }, { status: 400 })
     }
-    const plugins = await db().plugins.list(workspaceId)
+    const repo = await db()
+    const plugins = await repo.plugins.list(workspaceId)
     return NextResponse.json({ plugins })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -22,7 +23,8 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const session = await requireUser()
-    const member = session.memberId ? await db().members.getById(session.memberId) : null
+    const repo = await db()
+    const member = session.memberId ? await repo.members.getById(session.memberId) : null
     if (!member || !can(member, 'plugins.install')) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
@@ -33,7 +35,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: parsed.error.errors.map((e: { message: string }) => e.message).join(', ') }, { status: 400 })
     }
 
-    const plugin = await db().plugins.install({ workspaceId: session.workspaceId!, name: parsed.data.name, description: parsed.data.description, version: parsed.data.version })
+    const plugin = await repo.plugins.install({ workspaceId: session.workspaceId!, name: parsed.data.name, description: parsed.data.description, version: parsed.data.version })
     return NextResponse.json({ plugin })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -43,7 +45,8 @@ export async function POST(request: Request) {
 export async function DELETE(request: Request) {
   try {
     const session = await requireUser()
-    const member = session.memberId ? await db().members.getById(session.memberId) : null
+    const repo = await db()
+    const member = session.memberId ? await repo.members.getById(session.memberId) : null
     if (!member || !can(member, 'plugins.uninstall')) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
@@ -54,7 +57,7 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'Plugin id required' }, { status: 400 })
     }
 
-    const ok = await db().plugins.uninstall(id)
+    const ok = await repo.plugins.uninstall(id)
     return NextResponse.json({ ok })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

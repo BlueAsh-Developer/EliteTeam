@@ -12,7 +12,8 @@ export async function GET(request: Request) {
     if (!workspaceId) {
       return NextResponse.json({ error: 'No workspace' }, { status: 400 })
     }
-    const sessions = await db().browserSessions.list(workspaceId)
+    const repo = await db()
+    const sessions = await repo.browserSessions.list(workspaceId)
     return NextResponse.json({ sessions })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -22,7 +23,8 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const session = await requireUser()
-    const member = session.memberId ? await db().members.getById(session.memberId) : null
+    const repo = await db()
+    const member = session.memberId ? await repo.members.getById(session.memberId) : null
     if (!member || !can(member, 'browse.session.create')) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
@@ -33,7 +35,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: parsed.error.errors.map((e: { message: string }) => e.message).join(', ') }, { status: 400 })
     }
 
-    const sessionData = await db().browserSessions.create({ workspaceId: session.workspaceId!, userId: session.userId, url: parsed.data.url })
+    const sessionData = await repo.browserSessions.create({ workspaceId: session.workspaceId!, userId: session.userId, url: parsed.data.url })
     return NextResponse.json({ session: sessionData })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -43,24 +45,25 @@ export async function POST(request: Request) {
 export async function PATCH(request: Request) {
   try {
     const session = await requireUser()
+    const repo = await db()
     const body = await request.json()
     const { sessionId, event } = body
     if (!sessionId || !event) {
       return NextResponse.json({ error: 'sessionId and event required' }, { status: 400 })
     }
 
-    const existing = await db().browserSessions.list(session.workspaceId!)
+    const existing = await repo.browserSessions.list(session.workspaceId!)
     const target = existing.find((s) => s.id === sessionId)
     if (!target) {
       return NextResponse.json({ error: 'Session not found' }, { status: 404 })
     }
 
-    const member = session.memberId ? await db().members.getById(session.memberId) : null
+    const member = session.memberId ? await repo.members.getById(session.memberId) : null
     if (!member || !can(member, 'browse.control')) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }
 
-    const updated = await db().browserSessions.appendEvent(sessionId, event)
+    const updated = await repo.browserSessions.appendEvent(sessionId, event)
     return NextResponse.json({ session: updated })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })

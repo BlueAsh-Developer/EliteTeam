@@ -12,8 +12,9 @@ export async function GET(request: Request) {
     if (!workspaceId) {
       return NextResponse.json({ error: 'workspaceId required' }, { status: 400 })
     }
-    const members = await db().members.listByWorkspace(workspaceId)
-    const users = await Promise.all(members.map((m) => db().users.getById(m.userId)))
+    const repo = await db()
+    const members = await repo.members.listByWorkspace(workspaceId)
+    const users = await Promise.all(members.map((m) => repo.users.getById(m.userId)))
     const result = members.map((m, i) => ({
       ...m,
       user: users[i] ? { id: users[i].id, name: users[i].name, email: users[i].email } : null,
@@ -35,14 +36,15 @@ export async function POST(request: Request) {
 
     const { workspaceId } = parsed.data
     const { email, name, role } = parsed.data
+    const repo = await db()
 
-    let user = await db().users.getByEmail(email)
+    let user = await repo.users.getByEmail(email)
     if (!user) {
       const passwordHash = await hashPassword(nanoid())
-      user = await db().users.create({ email, name, passwordHash })
+      user = await repo.users.create({ email, name, passwordHash })
     }
 
-    const existing = await db().members.getByWorkspaceAndUser(workspaceId, user.id)
+    const existing = await repo.members.getByWorkspaceAndUser(workspaceId, user.id)
     if (existing) {
       return NextResponse.json({ error: 'User already a member' }, { status: 400 })
     }
@@ -52,7 +54,7 @@ export async function POST(request: Request) {
       Object.assign(permissions, { 'admin.settings': true, 'admin.invite': true, 'roles.edit': true })
     }
 
-    const member = await db().members.add({ workspaceId, userId: user.id, role, permissions })
+    const member = await repo.members.add({ workspaceId, userId: user.id, role, permissions })
     return NextResponse.json({ member })
   } catch {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
