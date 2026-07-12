@@ -19,9 +19,9 @@ export async function POST(request: Request) {
     }
 
     const passwordHash = await hashPassword(password)
-    const user = await db().users.create({ email, name, passwordHash })
-    const workspace = await db().workspaces.create({ name: workspaceName, ownerId: user.id })
-    await db().members.add({ workspaceId: workspace.id, userId: user.id, role: 'owner', permissions: { 'admin.settings': true, 'roles.edit': true, 'admin.invite': true, 'admin.removeMember': true, 'workspace.rename': true } })
+    const user = await repo.users.create({ email, name, passwordHash })
+    const workspace = await repo.workspaces.create({ name: workspaceName, ownerId: user.id })
+    await repo.members.add({ workspaceId: workspace.id, userId: user.id, role: 'owner', permissions: { 'admin.settings': true, 'roles.edit': true, 'admin.invite': true, 'admin.removeMember': true, 'workspace.rename': true } })
 
     const token = await signSession({ userId: user.id, email: user.email, workspaceId: workspace.id })
     await setSessionCookie(token)
