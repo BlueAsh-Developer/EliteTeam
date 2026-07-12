@@ -12,7 +12,8 @@ export async function POST(request: Request) {
     }
 
     const { name, email, password, workspaceName } = parsed.data
-    const existing = await db().users.getByEmail(email)
+    const repo = await db()
+    const existing = await repo.users.getByEmail(email)
     if (existing) {
       return NextResponse.json({ error: 'Email already registered' }, { status: 400 })
     }
