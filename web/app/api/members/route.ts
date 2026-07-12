@@ -34,8 +34,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: parsed.error.errors.map((e: { message: string }) => e.message).join(', ') }, { status: 400 })
     }
 
-    const { workspaceId } = parsed.data
-    const { email, name, role } = parsed.data
+    const { workspaceId, email, name, role } = parsed.data
     const repo = await db()
 
     let user = await repo.users.getByEmail(email)

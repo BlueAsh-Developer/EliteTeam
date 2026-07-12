@@ -17,6 +17,7 @@ export const workspaceSchema = z.object({
 })
 
 export const memberInviteSchema = z.object({
+  workspaceId: z.string().min(1, 'Workspace ID is required'),
   email: z.string().email('Invalid email'),
   name: z.string().min(1, 'Name is required'),
   role: z.enum(['admin', 'member', 'viewer']).default('member'),
