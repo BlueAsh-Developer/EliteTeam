@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EliteTeam support — search the knowledge base, browse help categories, and open a ticket with the team." />
+  <meta name="theme-color" content="#06070d" />
+  <title>Support — EliteTeam</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="index.html" data-magnetic>
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <path d="M16 2 4 9v14l12 7 12-7V9L16 2Z" stroke="url(#g1)" stroke-width="1.6" />
+          <path d="M16 2v28M4 9l24 14M28 9 4 23" stroke="url(#g1)" stroke-width="1.2" opacity=".5" />
+          <circle cx="16" cy="16" r="3.2" fill="url(#g1)" />
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="32" y2="32">
+              <stop stop-color="#7c5cff" /><stop offset="1" stop-color="#2dd4ff" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="nav__name">Elite<span>Team</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Capabilities</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#voices">Voices</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html" class="is-active">Support</a>
+    </nav>
+
+    <a href="pricing.html" class="btn btn--ghost nav__cta" data-magnetic>
+      Get started
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="page-hero section">
+      <div class="status-pill reveal" role="status">
+        <span class="status-pill__dot"></span> All systems operational
+      </div>
+      <div class="section__head reveal" data-delay="1">
+        <span class="eyebrow">Support</span>
+        <h1 class="page-hero__title">How can we help?</h1>
+        <p class="section__lead">Search our knowledge base or reach the team directly.</p>
+      </div>
+
+      <div class="support-search reveal" data-delay="2">
+        <svg class="support-search__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="supportSearch" placeholder="Search articles, billing, features…" aria-label="Search support" autocomplete="off" />
+      </div>
+    </section>
+
+    <section class="section cat-section">
+      <div class="cat-grid reveal">
+        <button type="button" class="card cat" data-category="getting-started" data-magnetic>
+          <span class="cat__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 3 8l9 5 9-5-9-5zM3 8v8l9 5 9-5V8"/></svg>
+          </span>
+          <h3>Getting started</h3>
+          <p>Set up your workspace and invite your first team.</p>
+        </button>
+
+        <button type="button" class="card cat" data-category="billing" data-magnetic>
+          <span class="cat__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+          </span>
+          <h3>Billing &amp; plans</h3>
+          <p>Manage subscriptions, invoices, and upgrades.</p>
+        </button>
+
+        <button type="button" class="card cat" data-category="features" data-magnetic>
+          <span class="cat__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </span>
+          <h3>Product features</h3>
+          <p>Master TeamChat, TeamMeet, TeamBrowse and more.</p>
+        </button>
+
+        <button type="button" class="card cat" data-category="security" data-magnetic>
+          <span class="cat__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <h3>Security &amp; privacy</h3>
+          <p>Permissions, SSO, audit logs and data control.</p>
+        </button>
+
+        <button type="button" class="card cat" data-category="account" data-magnetic>
+          <span class="cat__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </span>
+          <h3>Account &amp; teams</h3>
+          <p>Profiles, roles, and team administration.</p>
+        </button>
+      </div>
+
+      <div class="cat-chips reveal" data-delay="1" role="group" aria-label="Filter by category">
+        <button type="button" class="cat-chip is-active" data-category="all">All</button>
+        <button type="button" class="cat-chip" data-category="getting-started">Getting started</button>
+        <button type="button" class="cat-chip" data-category="billing">Billing &amp; plans</button>
+        <button type="button" class="cat-chip" data-category="features">Product features</button>
+        <button type="button" class="cat-chip" data-category="security">Security &amp; privacy</button>
+        <button type="button" class="cat-chip" data-category="account">Account &amp; teams</button>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="section__head reveal">
+        <span class="eyebrow">Knowledge base</span>
+        <h2 class="section__title">Frequently asked questions</h2>
+      </div>
+
+      <div class="accordion reveal" id="supportAccordion" data-delay="1">
+        <div class="accordion__item" data-category="getting-started" data-search="getting started create workspace invite team onboarding">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            How do I create my first workspace?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Sign up, pick a plan on the pricing page, and your workspace is created instantly. From there, add a name, upload a logo, and you're ready to invite teammates.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="getting-started" data-search="invite members team onboarding add people email">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            How do I invite teammates?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Open Settings → Members and paste email addresses, or share your workspace invite link. Invited members join with a single click.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="billing" data-search="upgrade downgrade change plan billing prorate">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            Can I change my plan later?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Yes — upgrade or downgrade anytime in Settings → Billing. We prorate the difference automatically, so you only pay for what you use.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="billing" data-search="refund money back guarantee cancel">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            What's your refund policy?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Every paid plan has a 14-day money-back guarantee. Contact support within that window for a full, no-questions-asked refund.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="features" data-search="teamchat voice messages rich text fonts formatting">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            What can I do in TeamChat?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">TeamChat is live team chat with voice messages, rich text, custom fonts, and advanced formatting. Channels, threads, and mentions keep conversations organized.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="features" data-search="teammeet video call screen sharing group">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            How does TeamMeet screen sharing work?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Start a voice or video call from any channel and click Share to present your screen in one click. Group video is included on the Team plan and above.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="security" data-search="teamrole permissions granular role access control">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            How granular are TeamRole permissions?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">TeamRole gives you 100+ granular permissions such as member.chat=true and member.voice.call=true, so you control exactly who can do what across every product.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="security" data-search="sso single sign on audit logs enterprise security">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            Do you support SSO and audit logs?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Enterprise plans include SSO (SAML/OIDC) and comprehensive audit logs tracking every permission change and admin action for compliance.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="account" data-search="teamrole roles assign admin member manage">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            How do I assign roles to members?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Go to Settings → Members, select a person, and open the Roles panel. Toggle individual TeamRole permissions or apply a saved role preset in seconds.</div></div>
+        </div>
+
+        <div class="accordion__item" data-category="account" data-search="plugins install admin marketplace custom">
+          <button type="button" class="accordion__trigger" aria-expanded="false">
+            Who can install plugins?
+            <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="accordion__panel"><div class="accordion__inner">Admins install plugins from the marketplace on the Team plan and above; Enterprise adds the ability to deploy private custom plugins built for your org.</div></div>
+        </div>
+
+        <p class="accordion__empty" id="faqEmpty" hidden>No results. Try a different search or <a href="#ticket">open a ticket</a>.</p>
+      </div>
+    </section>
+
+    <section class="section ticket-section" id="ticket">
+      <div class="section__head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 class="section__title">Open a support ticket</h2>
+        <p class="section__lead">We reply within 24 hours, every day.</p>
+      </div>
+
+      <form class="ticket-form reveal" id="ticketForm" data-delay="1" novalidate>
+        <div class="field">
+          <label for="tName">Name</label>
+          <input type="text" id="tName" name="name" placeholder="Jane Doe" />
+          <span class="field__error" data-error-for="name"></span>
+        </div>
+
+        <div class="field">
+          <label for="tEmail">Email</label>
+          <input type="email" id="tEmail" name="email" placeholder="you@company.com" />
+          <span class="field__error" data-error-for="email"></span>
+        </div>
+
+        <div class="field field--full">
+          <label for="tTopic">Topic</label>
+          <select id="tTopic" name="topic">
+            <option value="">Select a topic…</option>
+            <option value="getting-started">Getting started</option>
+            <option value="billing">Billing &amp; plans</option>
+            <option value="features">Product features</option>
+            <option value="security">Security &amp; privacy</option>
+            <option value="account">Account &amp; teams</option>
+          </select>
+          <span class="field__error" data-error-for="topic"></span>
+        </div>
+
+        <div class="field field--full">
+          <label for="tMessage">Message</label>
+          <textarea id="tMessage" name="message" rows="5" placeholder="Tell us what's going on (at least 10 characters)…"></textarea>
+          <span class="field__error" data-error-for="message"></span>
+        </div>
+
+        <div class="field--full">
+          <button type="submit" class="btn btn--primary" data-magnetic>
+            Send ticket
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <div class="form-banner field--full" id="ticketBanner" role="status" hidden></div>
+      </form>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta__panel reveal">
+        <h2 class="cta__title">Ready to upgrade your team?</h2>
+        <p class="cta__sub">Pick a plan and unlock the full EliteTeam stack in minutes.</p>
+        <a href="pricing.html" class="btn btn--primary" data-magnetic>
+          See pricing
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <a class="nav__brand" href="index.html">
+        <span class="nav__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+            <path d="M16 2 4 9v14l12 7 12-7V9L16 2Z" stroke="url(#g2)" stroke-width="1.6"/>
+            <circle cx="16" cy="16" r="3.2" fill="url(#g2)"/>
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#7c5cff"/><stop offset="1" stop-color="#2dd4ff"/></linearGradient></defs>
+          </svg>
+        </span>
+        <span class="nav__name">Elite<span>Team</span></span>
+      </a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="support.html">Support</a>
+        <a href="index.html#features">Capabilities</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#voices">Voices</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> EliteTeam. Crafted for the top 1%.</span>
+      <span class="footer__made">Built with intent ✦</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

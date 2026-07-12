@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EliteTeam — where the world's top 1% of talent and teams are forged. Hand-matched, battle-tested, ready to ship." />
+  <meta name="theme-color" content="#06070d" />
+  <title>EliteTeam — Where elite teams are forged</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" data-magnetic>
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <path d="M16 2 4 9v14l12 7 12-7V9L16 2Z" stroke="url(#g1)" stroke-width="1.6" />
+          <path d="M16 2v28M4 9l24 14M28 9 4 23" stroke="url(#g1)" stroke-width="1.2" opacity=".5" />
+          <circle cx="16" cy="16" r="3.2" fill="url(#g1)" />
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="32" y2="32">
+              <stop stop-color="#7c5cff" /><stop offset="1" stop-color="#2dd4ff" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="nav__name">Elite<span>Team</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#features">Capabilities</a>
+      <a href="#process">Process</a>
+      <a href="#metrics">Impact</a>
+      <a href="#voices">Voices</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="support.html">Support</a>
+    </nav>
+
+    <a href="pricing.html" class="btn btn--ghost nav__cta" data-magnetic>
+      Get started
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="hero">
+      <span class="hero__pill reveal" data-delay="0">
+        <span class="hero__pill-dot"></span>
+        Top 1% of talent, curated by humans
+      </span>
+
+      <h1 class="hero__title reveal" data-delay="1">
+        Where <span class="grad-text">elite teams</span>
+        are <span class="hero__title-outline">forged</span>.
+      </h1>
+
+      <p class="hero__sub reveal" data-delay="2">
+        We assemble hand-matched squads of world-class engineers, designers, and
+        operators — battle-tested, culturally aligned, and ready to ship from day one.
+      </p>
+
+      <div class="hero__actions reveal" data-delay="3">
+        <a href="pricing.html" class="btn btn--primary btn--shimmer" data-magnetic>
+          Start a build
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#process" class="btn btn--ghost" data-magnetic>See how it works</a>
+      </div>
+
+      <div class="hero__cards reveal" data-delay="4" aria-hidden="true">
+        <div class="float-card float-card--1">
+          <span class="float-card__tag">Frontend</span>
+          <span class="float-card__name">A. Morales</span>
+          <span class="float-card__meta">9 yrs · React · WebGL</span>
+        </div>
+        <div class="float-card float-card--2">
+          <span class="float-card__tag float-card__tag--alt">Design</span>
+          <span class="float-card__name">K. Lindqvist</span>
+          <span class="float-card__meta">Systems · Brand</span>
+        </div>
+        <div class="float-card float-card--3">
+          <span class="float-card__tag float-card__tag--warm">Backend</span>
+          <span class="float-card__name">R. Okafor</span>
+          <span class="float-card__meta">Distributed · Rust</span>
+        </div>
+      </div>
+
+      <a href="#features" class="hero__scroll" aria-label="Scroll to content">
+        <span class="hero__scroll-line"></span>
+        Scroll
+      </a>
+    </section>
+
+    <section class="marquee" aria-label="Trusted by leading teams">
+      <div class="marquee__track">
+        <span>NOVA</span><span>·</span><span>Helix</span><span>·</span><span>Quanta</span><span>·</span>
+        <span>Lumen</span><span>·</span><span>Aether</span><span>·</span><span>Forge</span><span>·</span>
+        <span>Vertex</span><span>·</span><span>Orbit</span><span>·</span><span>Pulse</span><span>·</span>
+        <span>NOVA</span><span>·</span><span>Helix</span><span>·</span><span>Quanta</span><span>·</span>
+        <span>Lumen</span><span>·</span><span>Aether</span><span>·</span><span>Forge</span><span>·</span>
+        <span>Vertex</span><span>·</span><span>Orbit</span><span>·</span><span>Pulse</span><span>·</span>
+      </div>
+    </section>
+
+    <section class="section features" id="features">
+      <div class="section__head reveal">
+        <span class="eyebrow">Capabilities</span>
+        <h2 class="section__title">Built different, on purpose.</h2>
+        <p class="section__lead">A platform that treats team-building as a craft — not a transaction.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal" data-delay="0">
+          <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Rigorous vetting</h3>
+          <p>Every member passes a multi-stage assessment. Only the top 1% make the cut.</p>
+        </article>
+        <article class="card reveal" data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <h3>Cultural fit</h3>
+          <p>We match working styles and values, not just résumés. Chemistry is the point.</p>
+        </article>
+        <article class="card reveal" data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+          <h3>Shipped fast</h3>
+          <p>Go from brief to a working squad in under 7 days, embedded and productive.</p>
+        </article>
+        <article class="card reveal" data-delay="0">
+          <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+          <h3>Real-time insight</h3>
+          <p>Live dashboards track velocity, health, and impact across every engagement.</p>
+        </article>
+        <article class="card reveal" data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <h3>Flexible scale</h3>
+          <p>Spin up a pod, scale to a division, or convert to full-time. You stay in control.</p>
+        </article>
+        <article class="card reveal" data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></div>
+          <h3>Risk-free trial</h3>
+          <p>Two-week trial with a satisfaction guarantee. Love the team, or it's free.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="section__head reveal">
+        <span class="eyebrow">Process</span>
+        <h2 class="section__title">From brief to squad in four moves.</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal" data-delay="0"><span class="step__num">01</span><h3>Map the mission</h3><p>We learn your goals, stack, and culture in a focused discovery call.</p></li>
+        <li class="step reveal" data-delay="1"><span class="step__num">02</span><h3>Curate the squad</h3><p>Our architects hand-pick a matched team from the elite network.</p></li>
+        <li class="step reveal" data-delay="2"><span class="step__num">03</span><h3>Embed &amp; align</h3><p>We onboard, set cadence, and connect tooling within a week.</p></li>
+        <li class="step reveal" data-delay="3"><span class="step__num">04</span><h3>Ship &amp; scale</h3><p>You get velocity, insight, and a team that compounds over time.</p></li>
+      </ol>
+    </section>
+
+    <section class="section metrics" id="metrics">
+      <div class="metrics__inner">
+        <div class="metric reveal" data-delay="0"><span class="metric__value" data-count="320" data-suffix="+">0</span><span class="metric__label">Elite members</span></div>
+        <div class="metric reveal" data-delay="1"><span class="metric__value" data-count="98" data-suffix="%">0</span><span class="metric__label">Retention rate</span></div>
+        <div class="metric reveal" data-delay="2"><span class="metric__value" data-count="7" data-suffix="d">0</span><span class="metric__label">Avg. time to squad</span></div>
+        <div class="metric reveal" data-delay="3"><span class="metric__value" data-count="42" data-suffix="M">0</span><span class="metric__label">Value shipped</span></div>
+      </div>
+    </section>
+
+    <section class="section voices" id="voices">
+      <div class="section__head reveal">
+        <span class="eyebrow">Voices</span>
+        <h2 class="section__title">Teams who bet on us — and won.</h2>
+      </div>
+      <div class="quotes">
+        <figure class="quote reveal" data-delay="0">
+          <blockquote>"We replaced three agencies with one EliteTeam pod. Our roadmap finally moves."</blockquote>
+          <figcaption><span class="quote__avatar" style="--a:#7c5cff">D</span><span><strong>Devin Park</strong><em>CTO, Lumen</em></span></figcaption>
+        </figure>
+        <figure class="quote reveal" data-delay="1">
+          <blockquote>"The cultural match was uncanny. It felt like they'd been on our team for years."</blockquote>
+          <figcaption><span class="quote__avatar" style="--a:#2dd4ff">S</span><span><strong>Sofia Reyes</strong><em>VP Product, Aether</em></span></figcaption>
+        </figure>
+        <figure class="quote reveal" data-delay="2">
+          <blockquote>"Seven days from intro to a shipped feature. I've never seen velocity like this."</blockquote>
+          <figcaption><span class="quote__avatar" style="--a:#ff5c8a">M</span><span><strong>Marco Vidal</strong><em>Founder, Quanta</em></span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section products" id="products">
+      <div class="section__head reveal">
+        <span class="eyebrow">The stack</span>
+        <h2 class="section__title">One workspace. Five superpowers.</h2>
+        <p class="section__lead">Everything your team needs to chat, meet, browse, and stay in control — in one premium platform.</p>
+      </div>
+
+      <div class="products-grid">
+        <article class="card product reveal" data-delay="0">
+          <span class="product__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10v4M12 8v8M16 9v6"/></svg>
+          </span>
+          <h3>TeamChat</h3>
+          <p>Live team chat with voice messages, rich text, fonts, and advanced formatting.</p>
+          <a class="product__link" href="support.html">Learn more &rarr;</a>
+        </article>
+
+        <article class="card product reveal" data-delay="1">
+          <span class="product__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </span>
+          <h3>TeamMeet</h3>
+          <p>Crystal-clear voice &amp; video calls with one-click screen sharing.</p>
+          <a class="product__link" href="support.html">Learn more &rarr;</a>
+        </article>
+
+        <article class="card product reveal" data-delay="2">
+          <span class="product__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          </span>
+          <h3>TeamBrowse</h3>
+          <p>A shared virtual browser — your whole team browses, clicks, and uses sites together in real time.</p>
+          <a class="product__link" href="support.html">Learn more &rarr;</a>
+        </article>
+
+        <article class="card product reveal" data-delay="0">
+          <span class="product__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </span>
+          <h3>Plugins</h3>
+          <p>Admins install powerful plugins built by EliteTeam to extend your workspace.</p>
+          <a class="product__link" href="support.html">Learn more &rarr;</a>
+        </article>
+
+        <article class="card product reveal" data-delay="1">
+          <span class="product__icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <h3>TeamRole</h3>
+          <p>100+ granular permissions (member.chat, member.voice.call, and more) to control exactly who can do what.</p>
+          <a class="product__link" href="support.html">Learn more &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta__panel reveal">
+        <h2 class="cta__title">Forge your elite team today.</h2>
+        <p class="cta__sub">Pick a plan, spin up your stack, and we'll have your squad matched and ready within 48 hours.</p>
+        <form class="cta__form" id="ctaForm" novalidate>
+          <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+          <button type="submit" class="btn btn--primary" data-magnetic>
+            Request squad
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <p class="cta__note" id="ctaNote" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <a class="nav__brand" href="#top">
+        <span class="nav__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+            <path d="M16 2 4 9v14l12 7 12-7V9L16 2Z" stroke="url(#g2)" stroke-width="1.6"/>
+            <circle cx="16" cy="16" r="3.2" fill="url(#g2)"/>
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#7c5cff"/><stop offset="1" stop-color="#2dd4ff"/></linearGradient></defs>
+          </svg>
+        </span>
+        <span class="nav__name">Elite<span>Team</span></span>
+      </a>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="support.html">Support</a>
+        <a href="#features">Capabilities</a>
+        <a href="#process">Process</a>
+        <a href="#metrics">Impact</a>
+        <a href="#voices">Voices</a>
+        <a href="#cta">Contact</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> EliteTeam. Crafted for the top 1%.</span>
+      <span class="footer__made">Built with intent ✦</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
