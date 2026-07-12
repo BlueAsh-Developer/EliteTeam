@@ -6,15 +6,16 @@ import { redirect } from 'next/navigation'
 export default async function RolesPage({ searchParams }: { searchParams: { workspaceId?: string } }) {
   try {
     const session = await authRequireUser()
-    const member = session.memberId ? await db().members.getById(session.memberId) : null
+    const repo = await db()
+    const member = session.memberId ? await repo.members.getById(session.memberId) : null
     if (!member || !can(member, 'roles.view')) {
       redirect('/dashboard')
     }
 
-    const workspaces = await db().workspaces.listByUser(session.userId)
+    const workspaces = await repo.workspaces.listByUser(session.userId)
     const wsId = searchParams.workspaceId || session.workspaceId || workspaces[0]?.id
-    const roles = wsId ? await db().roles.listByWorkspace(wsId) : []
-    const members = wsId ? await db().members.listByWorkspace(wsId) : []
+    const roles = wsId ? await repo.roles.listByWorkspace(wsId) : []
+    const members = wsId ? await repo.members.listByWorkspace(wsId) : []
 
     return (
       <div>

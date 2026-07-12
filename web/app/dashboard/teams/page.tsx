@@ -6,9 +6,10 @@ export default async function TeamsPage({ searchParams }: { searchParams: { work
   const session = await getSession()
   if (!session) return null
 
-  const workspaces = await db().workspaces.listByUser(session.userId)
+  const repo = await db()
+  const workspaces = await repo.workspaces.listByUser(session.userId)
   const wsId = searchParams.workspaceId || session.workspaceId || workspaces[0]?.id
-  const members = wsId ? await db().members.listByWorkspace(wsId) : []
+  const members = wsId ? await repo.members.listByWorkspace(wsId) : []
   const users = await Promise.all(members.map((m) => db().users.getById(m.userId)))
 
   return (
