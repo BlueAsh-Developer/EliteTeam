@@ -24,6 +24,7 @@ export const memberInviteSchema = z.object({
 })
 
 export const roleSchema = z.object({
+  id: z.string().min(1, 'ID is required'),
   name: z.string().min(1, 'Role name is required'),
   permissions: z.record(z.boolean()),
 })

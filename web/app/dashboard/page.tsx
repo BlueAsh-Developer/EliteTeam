@@ -8,7 +8,8 @@ export default async function DashboardPage() {
   const session = await getSession()
   if (!session) return null
 
-  const workspaces = await db().workspaces.listByUser(session.userId)
+  const repo = await db()
+  const workspaces = await repo.workspaces.listByUser(session.userId)
   const wsId = session.workspaceId || workspaces[0]?.id
   let memberCount = 0
   let messageCount = 0
@@ -16,15 +17,15 @@ export default async function DashboardPage() {
   let memberPermissions: Record<string, boolean> = {}
 
   if (wsId) {
-    const members = await db().members.listByWorkspace(wsId)
+    const members = await repo.members.listByWorkspace(wsId)
     memberCount = members.length
     const currentMember = members.find((m) => m.userId === session.userId)
     if (currentMember) {
       memberPermissions = currentMember.permissions
     }
-    const messages = await db().messages.list(wsId, 'general')
+    const messages = await repo.messages.list(wsId, 'general')
     messageCount = messages.length
-    const calls = await db().calls.list(wsId)
+    const calls = await repo.calls.list(wsId)
     callCount = calls.length
   }
 
