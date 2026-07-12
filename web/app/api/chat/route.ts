@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     }
     const repo = await db()
     const messages = await repo.messages.list(workspaceId, channel)
-    const users = await Promise.all([...new Set(messages.map((m) => m.userId))].map((id) => repo.users.getById(id)))
+    const users = await Promise.all(Array.from(new Set(messages.map((m) => m.userId))).map((id) => repo.users.getById(id)))
     const userMap = new Map(users.filter(Boolean).map((u) => [u!.id, u!]))
     return NextResponse.json({ messages: messages.map((m) => ({ ...m, user: userMap.get(m.userId) })) })
   } catch {
